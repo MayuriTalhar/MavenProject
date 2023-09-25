@@ -3,28 +3,28 @@ pipeline {
     
     stages {
         stage('Compile on Slave 1') {
-            agent { label 'slave-1' }
+            agent { label 'slave1' }
             steps {
                 sh 'mvn clean compile'
             }
         }
         
         stage('Compile on Slave 2') {
-            agent { label 'slave-2' }
+            agent { label 'slave2' }
             steps {
                 sh 'mvn clean compile'
             }
         }
         
         stage('Test on Slave 1') {
-            agent { label 'slave-1' }
+            agent { label 'slave1' }
             steps {
                 sh 'mvn test'
             }
         }
         
         stage('Test on Slave 2') {
-            agent { label 'slave-2' }
+            agent { label 'slave2' }
             steps {
                 sh 'mvn test'
             }
